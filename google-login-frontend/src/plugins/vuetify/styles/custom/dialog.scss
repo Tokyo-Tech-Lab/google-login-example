@@ -1,0 +1,21 @@
+.v-dialog {
+    .close-button {
+        position: absolute;
+        inline-size: 2rem;
+        inset-block-start: 0;
+        inset-inline-end: 0;
+        transform: translate(0.5rem, -0.5rem);
+        padding: 0;
+        block-size: 2rem;
+        z-index: 100;
+        min-width: unset !important;
+        width: 32px;
+        height: 32px !important;
+        box-shadow: 0 3px 5px 2px rgba(var(--v-theme-on-surface), 0.03),
+            0 5px 3px rgba(var(--v-theme-on-surface), 0.02),
+            0 1px 4px 2px rgba(var(--v-theme-on-surface), 0.01);
+        &:hover {
+            transform: translate(0.3125rem, -0.3125rem);
+        }
+    }
+}

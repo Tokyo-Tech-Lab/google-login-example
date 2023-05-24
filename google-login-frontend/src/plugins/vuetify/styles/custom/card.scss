@@ -1,0 +1,12 @@
+@import '../../../../assets/styles/variables.scss';
+
+.v-card {
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.v-card--variant-elevated {
+    box-shadow: 0 3px 9px 1px $v-shadow-key-umbra-opacity,
+        0 9px 8px $v-shadow-key-penumbra-opacity,
+        0 1px 6px 4px $v-shadow-key-ambient-opacity;
+}

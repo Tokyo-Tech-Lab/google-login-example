@@ -1,0 +1,80 @@
+@import '../../../../assets/styles/variables.scss';
+
+.v-field__input {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    min-height: 40px;
+}
+
+.v-field__outline {
+    .v-field__outline__start {
+        border-radius: 6px 0 0 6px;
+    }
+    .v-field__outline__end {
+        border-radius: 0 6px 6px 0;
+    }
+
+    > div {
+        border-color: rgba(51, 48, 60, 0.68);
+    }
+}
+
+.v-field:not(.v-field--focused, .v-field--error) {
+    &:hover {
+        .v-field__outline > div {
+            border-color: $border-hover-color;
+            &.v-field__outline__notch {
+                &::after {
+                    border-color: $border-hover-color;
+                }
+                &::before {
+                    border-color: $border-hover-color;
+                }
+            }
+        }
+    }
+}
+
+.v-field--focused {
+    .v-field__outline {
+        & > div {
+            border-top-width: $border-focused-width;
+            border-bottom-width: $border-focused-width;
+            &.v-field__outline__notch {
+                &::after {
+                    border-bottom-width: $border-focused-width;
+                }
+            }
+            &.v-field__outline__start {
+                border-inline-start-width: $border-focused-width;
+            }
+            &.v-field__outline__end {
+                border-inline-end-width: $border-focused-width;
+            }
+        }
+    }
+}
+
+.v-field--variant-solo {
+    box-shadow: 0 0 0 1px $color-border inset;
+    &:hover {
+        box-shadow: 0 0 0 1px $color-border-hover inset;
+    }
+    &.v-field--focused {
+        box-shadow: 0 0 0 2px $color-border-focus inset;
+    }
+}
+
+.v-field--variant-solo.v-field--error {
+    box-shadow: 0 0 0 1px $color-red inset;
+    &.v-field--focused {
+        box-shadow: 0 0 0 1.5px $color-red inset;
+    }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}

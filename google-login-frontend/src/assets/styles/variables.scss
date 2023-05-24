@@ -1,0 +1,67 @@
+$color-black: #000000;
+$color-red: #ff0000;
+$color-white: #ffffff;
+$color-white-01: #f8f8f8;
+
+$color-background: #f8f7fa;
+$color-border: rgba(0, 0, 0, 0.12);
+$color-border-hover: #87858c;
+$color-border-focus: #7367f0;
+$color-text-primary: #333238;
+$color-text-secondary: #33303cde;
+$color-text-gray: #828086;
+$color-sidebar-item-title: #828086;
+$color-sidebar-item-hover: #f9f9fa;
+$color-sidebar-item-focus: #f4f4f4;
+
+$v-global-theme-primary: rgb(115, 103, 240);
+$v-shadow-key-umbra-opacity: rgb(51, 48, 60, 0.03);
+$v-shadow-key-penumbra-opacity: rgb(51, 48, 60, 0.02);
+$v-shadow-key-ambient-opacity: rgb(51, 48, 60, 0.01);
+
+$grid-breakpoints: (
+    xs: 399px,
+    sm: 575px,
+    md: 767px,
+    lg: 991px,
+    xl: 1199px,
+    xxl: 1399px,
+);
+
+// z-index management
+$zIndex: (
+    menu: 100,
+    popup: 200,
+    chatBox: 300,
+    searchForm: 150,
+);
+
+$border-hover-color: rgb(75, 90, 92);
+$border-focused-width: 2px;
+$header-font-color: #33303cde;
+$text-subtitle-font-color: rgba(51, 48, 60, 0.68);
+
+// tree view
+$color-folder-icon: #54aeff;
+$color-file-icon: #7a7a7ade;
+$color-border-child-node: #e9ecef;
+
+// merge request diff line
+$background-content-line-fold: #ddf4ff;
+$background-content-line-added: #e6ffec;
+$background-content-line-deleted: #ffebe9;
+$background-line-hover: #e1d8f9;
+$background-line-active: #fdf1dd;
+$background-line-commenting: #9ddbf842;
+$background-line-number: #ffffff;
+$background-line-number-fold: #bbdfff;
+$background-line-number-added: #ccffd8;
+$background-line-number-deleted: #ffd7d5;
+$background-file-header: #f6f8fa;
+$background-file-header-hover: #f2f2f4;
+$color-diff-stat-added: #217645;
+$color-diff-stat-deleted: #dd2b0e;
+$color-comment-icon: #1068bf;
+$color-border-line-active: #f5c168;
+$color-border-line-selected: #3493f1;
+$color-conflict-merge-request: #ea5455;

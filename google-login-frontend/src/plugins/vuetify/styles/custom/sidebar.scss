@@ -1,0 +1,47 @@
+@import '../../../../assets/styles/variables.scss';
+
+.v-navigation-drawer {
+    .v-list-item-subtitle {
+        margin-top: 12px;
+        margin-bottom: 6px;
+        padding: 0 12px;
+    }
+
+    .v-list {
+        padding: 8px;
+
+        .v-list-item {
+            margin-bottom: 4px;
+            padding: 0 12px;
+            border-radius: 8px;
+
+            &:hover {
+                color: $color-sidebar-item-title;
+                background-color: $color-sidebar-item-hover !important;
+                :deep(.v-list-item__overlay) {
+                    background-color: $color-sidebar-item-hover !important;
+                }
+            }
+        }
+
+        .v-list-item__prepend {
+            margin-left: 10px;
+        }
+    }
+
+    .v-divider {
+        margin-left: 10px;
+        margin-right: 10px;
+        border-width: 1px;
+    }
+}
+
+.v-navigation-drawer--rail {
+    .v-list-item-subtitle {
+        display: none;
+    }
+
+    .v-list-item__append {
+        display: none !important;
+    }
+}

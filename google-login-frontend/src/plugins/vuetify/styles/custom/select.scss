@@ -1,0 +1,13 @@
+.v-select {
+    .v-field {
+        align-items: center;
+
+        .v-field-label {
+            top: 8px;
+        }
+        .v-field__clearable,
+        .v-field__append-inner {
+            padding: 0;
+        }
+    }
+}
