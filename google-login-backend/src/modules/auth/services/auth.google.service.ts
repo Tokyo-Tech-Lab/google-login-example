@@ -89,10 +89,9 @@ export class AuthGoogleService {
             );
             const clientId = this.configService.get(ConfigKey.GOOGLE_CLIENT_ID);
             const googleClient = new OAuth2Client({ clientSecret, clientId });
-            const url = GoogleUserInfoUrl;
 
             googleClient.setCredentials({ access_token: accessToken }); // use the new auth client with the access_token
-            const response = await googleClient.request({ url });
+            const response = await googleClient.request({ url: GoogleUserInfoUrl });
             return response?.data as IGoogleData;
         } catch (error) {
             this.logger.error('Error in getUserInfoFromAccessToken: ', error);

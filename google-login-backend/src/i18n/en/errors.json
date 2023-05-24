@@ -4,5 +4,6 @@
     "403": "Forbidden",
     "404": "Not found",
     "500": "System Error with id = {param}",
-    "system.error": "System Error, please try again!"
+    "system.error": "System Error, please try again!",
+    "invalidLoginInfo": "Invalid user"
 }

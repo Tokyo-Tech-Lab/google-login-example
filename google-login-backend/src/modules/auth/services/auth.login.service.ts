@@ -51,7 +51,7 @@ export class AuthLoginService {
             this.logger.error('Error in authenticateByGoogle: ', error);
             return {
                 success: false,
-                errorMessage: this.i18n.t('auth.error.invalidLoginInfo'),
+                errorMessage: this.i18n.t('error.invalidLoginInfo'),
             };
         }
     }

@@ -15,7 +15,6 @@
 		"start:prod": "node dist/src/main",
 		"lint": "eslint \"src/**/*.ts\" --fix",
 		"dev": "yarn start:dev",
-		"prepare": "husky install",
 		"seed:run": "ts-node database/seeds/index.ts"
 	},
 	"dependencies": {
@@ -31,7 +30,6 @@
 		"dayjs": "^1.11.7",
 		"google-auth-library": "^8.8.0",
 		"helmet": "^7.0.0",
-		"husky": "^8.0.3",
 		"joi": "^17.9.2",
 		"lodash": "^4.17.21",
 		"nest-winston": "^1.9.2",

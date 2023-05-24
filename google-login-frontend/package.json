@@ -11,15 +11,13 @@
 		"build-only": "vite build",
 		"type-check": "vue-tsc --noEmit",
 		"lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-		"format": "prettier --write ./src",
-		"postinstall": "husky install"
+		"format": "prettier --write ./src"
 	},
 	"dependencies": {
 		"@intlify/runtime": "^9.1.10",
 		"@mdi/font": "^7.2.96",
 		"axios": "^1.4.0",
 		"bootstrap": "^5.2.3",
-		"husky": "^8.0.3",
 		"lodash": "^4.17.21",
 		"pinia": "^2.1.3",
 		"vite-tsconfig-paths": "^4.2.0",
