@@ -4,5 +4,6 @@
     "403": "Forbidden",
     "404": "Not found",
     "500": "Lỗi hệ thống với id = {param}",
-    "system.error": "Lỗi hệ thống, vui lòng thử lại!"
+    "system.error": "Lỗi hệ thống, vui lòng thử lại!",
+    "invalidLoginInfo": "Thông tin đăng nhập không hợp lệ"
 }

@@ -8,8 +8,8 @@ npm install
 ```
 
 ## Before run
-create file `.env` by copying file `.env.example` 
-change value as your environment
+- create file `.env` by copying file `.env.example` 
+- change value as your environment
 
 ### Compile and Hot-Reload for Development
 

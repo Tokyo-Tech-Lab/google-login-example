@@ -12,6 +12,5 @@ export const GoogleLoginLinkParameters = {
 };
 export const GoogleUserInfoUrl =
     'https://www.googleapis.com/oauth2/v1/userinfo';
-export const GoogleGetAccessTokenUrl = 'https://oauth2.googleapis.com/token';
 
 
