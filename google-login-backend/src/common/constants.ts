@@ -4,42 +4,13 @@ dotenv.config();
 
 export enum Languages {
     EN = 'en',
+    VI = 'vi',
 }
-
-
 
 export enum AuthorizationType {
     ACCESS_TOKEN = 'access_token',
     REFRESH_TOKEN = 'refresh_token',
 }
-
-export const INPUT_TEXT_MAX_LENGTH = 255;
-export const TEXTAREA_MAX_LENGTH = 2000;
-export const ARRAY_MAX_LENGTH = 500;
-
-export const softDeleteCondition = {
-    $or: [
-        {
-            deletedAt: {
-                $exists: true,
-                $eq: null,
-            },
-        },
-        {
-            deletedAt: {
-                $exists: false,
-            },
-        },
-    ],
-};
-
-export enum DateFormat {
-    YYYY_MM_DD_HYPHEN = 'YYYY-MM-DD',
-    HH_mm_ss_COLON = 'HH:mm:ss',
-    YYYY_MM_DD_HYPHEN_HH_mm_ss_COLON = 'YYYY-MM-DD HH:mm:ss',
-}
-
-
 
 export enum HttpStatus {
     OK = 200,
