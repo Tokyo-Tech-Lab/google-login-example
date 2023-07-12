@@ -1,5 +1,6 @@
 import axiosService from 'axios';
 import type { ILoginBody } from '../interfaces';
+import { GOOGLE_REDIRECT_URI } from '../constants';
 
 class AuthApiService {
     baseUrl: string;
@@ -11,10 +12,11 @@ class AuthApiService {
     getGoogleLoginLink() {
         return axiosService.get(`${this.baseUrl}/google-login-url`, {
             params: {
-                redirectUri: `${window.location.origin}/google-login`,
+                redirectUri: GOOGLE_REDIRECT_URI,
             },
         });
     }
+    
     loginByGoogle(loginBody: ILoginBody) {
         return axiosService.post(`${this.baseUrl}/google-login`, loginBody);
     }

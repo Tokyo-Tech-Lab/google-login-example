@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { HttpStatus, PageName } from '@/common/constants';
+import { PageName } from '@/common/constants';
 
 import { useRoute, useRouter } from 'vue-router';
+import { GOOGLE_REDIRECT_URI } from '../constants';
 
 import { useLoginStore } from '../stores/login.store';
 
@@ -12,12 +13,11 @@ const router = useRouter();
 async function loginWithGoogle() {
     const token = route.query.code || '';
     if (token) {
-        const redirectUri = `${window.location.origin}/google-login`;
-        const response = await loginStore.login({
+        await loginStore.login({
             token: token as string,
-            redirectUri,
+            redirectUri: GOOGLE_REDIRECT_URI,
         });
-        if (response?.status === HttpStatus.OK) {
+        if (loginStore.loginUser?.email) {
             router.push({ name: PageName.DASHBOARD_PAGE });
             return;
         }
@@ -27,9 +27,5 @@ async function loginWithGoogle() {
 }
 loginWithGoogle();
 </script>
-
-<template>
-    <div></div>
-</template>
 
 <style scoped lang="scss"></style>

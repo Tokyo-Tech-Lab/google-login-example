@@ -1,8 +1,8 @@
 import { PageName } from '@/common/constants';
 import { type RouteRecordRaw } from 'vue-router';
 import AuthLayout from '../../layouts/AuthLayout.vue';
-import LoginWithGooglePage from './pages/LoginWithGooglePage.vue';
-import GoogleLoginPage from './pages/GoogleLoginPage.vue';
+import GoogleRedirectPage from './pages/GoogleRedirectPage.vue';
+import LoginPage from './pages/LoginPage.vue';
 
 const authRouters: Array<RouteRecordRaw> = [
     {
@@ -12,7 +12,7 @@ const authRouters: Array<RouteRecordRaw> = [
             {
                 path: '/login',
                 name: PageName.LOGIN_PAGE,
-                component: LoginWithGooglePage,
+                component: LoginPage,
                 meta: {
                     onlyWhenLoggedOut: true,
                     public: true,
@@ -21,7 +21,7 @@ const authRouters: Array<RouteRecordRaw> = [
             {
                 path: '/google-login',
                 name: PageName.GOOGLE_LOGIN_PAGE,
-                component: GoogleLoginPage,
+                component: GoogleRedirectPage,
                 meta: {
                     onlyWhenLoggedOut: true,
                     public: true,

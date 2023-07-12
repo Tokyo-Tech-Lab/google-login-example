@@ -1,4 +1,4 @@
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import { defineStore } from 'pinia';
 import { authApiService } from '../services/auth.api';
 import type { ILoginBody } from '../interfaces';
@@ -10,9 +10,17 @@ export const useLoginStore = defineStore('login', () => {
     const loginUser: IUser = reactive({
         email: '',
     });
+    
+    const googleLoginUrl = ref('');
 
     async function getGoogleLoginUrl() {
-        return await authApiService.getGoogleLoginLink();
+        const response = await authApiService.getGoogleLoginLink();
+        if (response?.status === HttpStatus.OK) {
+            const { data } = response;
+            googleLoginUrl.value = data.data.loginUrl;
+        } else {
+            googleLoginUrl.value = '';
+        }
     }
 
     async function login(body: ILoginBody) {
@@ -20,7 +28,9 @@ export const useLoginStore = defineStore('login', () => {
 
         if (response?.status === HttpStatus.OK) {
             const { profile, accessToken, refreshToken } = response?.data?.data || {};
+            // set login user to app store
             loginUser.email = profile.email;
+            // set login user to localStorage
             localStorageAuthService.setLoginUser(profile);
             localStorageAuthService.setAccessToken(accessToken?.token);
             localStorageAuthService.setAccessTokenExpiredAt(accessToken?.expiresIn);
@@ -33,21 +43,15 @@ export const useLoginStore = defineStore('login', () => {
         return response;
     }
 
-
-    function setLoginUser(user: IUser) {
-        loginUser.name = user.name;
-        loginUser.email = user.email;
-    }
-
     function resetLoginUser() {
         loginUser.email = '';
     }
 
     return {
         loginUser,
+        googleLoginUrl,
         login,
         getGoogleLoginUrl,
-        setLoginUser,
         resetLoginUser,
     };
 });

@@ -1,16 +1,17 @@
 <script setup lang="ts">
 import { useLoginStore } from '../stores/login.store';
-import iconGoogle from '../../../assets/images/authentication/icongoogle.svg';
-import { HttpStatus } from '@/common/constants';
+import iconGoogle from '../../../assets/images/authentication/icon-google.svg';
+
 
 const loginStore = useLoginStore();
 
 const doLogin = async () => {
-    const response = await loginStore.getGoogleLoginUrl();
+    // call API to get googleLoginUrl
+    await loginStore.getGoogleLoginUrl();
 
-    if (response?.status === HttpStatus.OK) {
-        const { data } = response;
-        window.location.replace(data.data.loginUrl);
+    if (loginStore.googleLoginUrl) {
+        // redirect to google login url
+        window.location.href = loginStore.googleLoginUrl;
     } else {
         // TODO: Show error message
     }
@@ -26,37 +27,35 @@ const doLogin = async () => {
             <v-responsive class="login-block-2">
                 <img src="@/assets/images/authentication/login-block-2.svg" alt="" />
             </v-responsive>
-            <form @submit.prevent="doLogin">
-                <v-card class="d-flex flex-column mt-12 mt-sm-0 pa-6 login-form-body">
-                    <v-container class="pa-4">
-                        <v-row>
-                            <v-col cols="12">
-                                <div class="mb-3 logo-wrapper d-flex justify-center">
-                                    <img
-                                        src="../../../assets/images/logo.png"
-                                        alt=""
-                                        height="40"
-                                    />
+            <v-card class="d-flex flex-column mt-12 mt-sm-0 pa-6 login-form-body">
+                <v-container class="pa-4">
+                    <v-row>
+                        <v-col cols="12">
+                            <div class="mb-3 logo-wrapper d-flex justify-center">
+                                <img
+                                    src="../../../assets/images/logo.png"
+                                    alt=""
+                                    height="40"
+                                />
+                            </div>
+                        </v-col>
+                        <v-col cols="12" class="button-login-wrapper">
+                            <v-btn
+                                class="mt-1 button-login"
+                                color="white"
+                                elevation="1"
+                                type="button"
+                                @click="doLogin"
+                            >
+                                <div class="button-login-img">
+                                    <img :src="iconGoogle" alt="logo" />
                                 </div>
-                            </v-col>
-
-                            <v-col cols="12" class="login-page-login">
-                                <v-btn
-                                    class="mt-1 login-page-button"
-                                    color="white"
-                                    elevation="1"
-                                    type="submit"
-                                >
-                                    <div class="login-page-button-img">
-                                        <img :src="iconGoogle" alt="logo" />
-                                    </div>
-                                    {{ $t('auth.login.button.loginWithGoogle') }}
-                                </v-btn>
-                            </v-col>
-                        </v-row>
-                    </v-container>
-                </v-card>
-            </form>
+                                {{ $t('auth.login.button.loginWithGoogle') }}
+                            </v-btn>
+                        </v-col>
+                    </v-row>
+                </v-container>
+            </v-card>
         </div>
     </div>
 </template>
@@ -101,16 +100,16 @@ const doLogin = async () => {
 
 // css button login
 
-.login-page-login {
+.button-login-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    .login-page-button {
+    .button-login {
         display: flex;
         align-items: center;
         justify-content: center;
         background-color: #ccc;
-        .login-page-button-img {
+        .button-login-img {
             width: 20px;
             margin-right: 10px;
             img {
