@@ -10,7 +10,7 @@ export const useLoginStore = defineStore('login', () => {
     const loginUser: IUser = reactive({
         email: '',
     });
-    
+
     const googleLoginUrl = ref('');
 
     async function getGoogleLoginUrl() {

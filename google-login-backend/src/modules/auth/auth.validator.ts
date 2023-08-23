@@ -8,4 +8,3 @@ export const googleLoginBodySchema = Joi.object().keys({
     token: Joi.string().required(),
     redirectUri: Joi.string().uri().required(),
 });
-

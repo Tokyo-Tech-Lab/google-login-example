@@ -26,9 +26,9 @@ export class AuthGoogleService {
     public getGoogleLoginUrl(
         query: { redirectUri: string },
         scope = GoogleLoginLinkParameters.scope,
-        responseType = GoogleLoginLinkParameters.responseType,
-        accessType = GoogleLoginLinkParameters.accessType,
-        prompt = GoogleLoginLinkParameters.prompt,
+        // responseType = GoogleLoginLinkParameters.responseType,
+        // accessType = GoogleLoginLinkParameters.accessType,
+        // prompt = GoogleLoginLinkParameters.prompt,
     ) {
         try {
             const clientSecret = this.configService.get(
@@ -91,7 +91,9 @@ export class AuthGoogleService {
             const googleClient = new OAuth2Client({ clientSecret, clientId });
 
             googleClient.setCredentials({ access_token: accessToken }); // use the new auth client with the access_token
-            const response = await googleClient.request({ url: GoogleUserInfoUrl });
+            const response = await googleClient.request({
+                url: GoogleUserInfoUrl,
+            });
             return response?.data as IGoogleData;
         } catch (error) {
             this.logger.error('Error in getUserInfoFromAccessToken: ', error);

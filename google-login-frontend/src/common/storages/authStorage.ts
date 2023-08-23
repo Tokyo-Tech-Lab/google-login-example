@@ -74,8 +74,7 @@ class LocalStorageAuthService {
     setLoginUser(user: null | IUser): void {
         if (!user) {
             storage.setLocalStorage(AUTH_SERVICE_KEY.USER, '');
-        }
-        else {
+        } else {
             storage.setLocalStorage(AUTH_SERVICE_KEY.USER, JSON.stringify(user));
         }
     }

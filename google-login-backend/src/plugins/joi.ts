@@ -17,6 +17,5 @@ const joiDateExtension = (joi) => {
     };
 };
 
-
 const Joi = JoiBase.extend(joiDateExtension);
 export default Joi;

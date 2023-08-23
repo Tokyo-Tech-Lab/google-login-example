@@ -4,17 +4,10 @@ import { AuthController } from './auth.controller';
 import { AuthGoogleService } from './services/auth.google.service';
 import { AuthLoginService } from './services/auth.login.service';
 
-
 @Module({
-    imports: [
-       
-    ],
+    imports: [],
     controllers: [AuthController],
-    providers: [
-        JwtService,
-        AuthGoogleService,
-        AuthLoginService,
-    ],
+    providers: [JwtService, AuthGoogleService, AuthLoginService],
 })
 export class AuthModule {
     //

@@ -5,4 +5,3 @@ export function parseToCamelCase(data) {
     data = mapKeys(data, (value, key) => camelCase(key));
     return data;
 }
-

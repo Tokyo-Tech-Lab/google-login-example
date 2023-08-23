@@ -1,4 +1,3 @@
-
 export interface IGoogleLoginBody {
     token?: string;
     redirectUri?: string;

@@ -11,7 +11,7 @@ interface IAuthenicateResult {
     success: boolean;
     errorMessage?: string;
     user?: {
-        email: string,
+        email: string;
     };
 }
 
@@ -42,7 +42,7 @@ export class AuthLoginService {
                     errorMessage: verifyResult.errorMessage,
                 };
             }
-            
+
             return {
                 success: true,
                 user: verifyResult.googleData,

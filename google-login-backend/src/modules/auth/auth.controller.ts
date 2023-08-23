@@ -4,10 +4,8 @@ import {
     Controller,
     Get,
     InternalServerErrorException,
-    Patch,
     Post,
     Query,
-    Req,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
@@ -60,10 +58,11 @@ export class AuthController {
         body: IGoogleLoginBody,
     ) {
         try {
-            const authenticateResult = await this.loginService.authenticateByGoogle(
-                body.token,
-                body.redirectUri,
-            );
+            const authenticateResult =
+                await this.loginService.authenticateByGoogle(
+                    body.token,
+                    body.redirectUri,
+                );
             if (!authenticateResult.success) {
                 return new ErrorResponse(
                     HttpStatus.UNAUTHORIZED,

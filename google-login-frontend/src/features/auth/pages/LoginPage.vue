@@ -2,7 +2,6 @@
 import { useLoginStore } from '../stores/login.store';
 import iconGoogle from '../../../assets/images/authentication/icon-google.svg';
 
-
 const loginStore = useLoginStore();
 
 const doLogin = async () => {

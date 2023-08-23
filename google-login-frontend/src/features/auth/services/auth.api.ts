@@ -16,11 +16,11 @@ class AuthApiService {
             },
         });
     }
-    
+
     loginByGoogle(loginBody: ILoginBody) {
         return axiosService.post(`${this.baseUrl}/google-login`, loginBody);
     }
 }
 export const authApiService = new AuthApiService(
-    `${import.meta.env.VUE_APP_API_URL}/auth` as string
+    `${import.meta.env.VUE_APP_API_URL}/auth` as string,
 );
